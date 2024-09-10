@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Вход</title>
+</head>
+<body>
+    <h1>Вход</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username" required>
+        <br><br>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+        <input type="submit" value="Войти">
+    </form>
+    {% if form.errors %}
+        <ul>
+            {% for field, errors in form.errors.items() %}
+                <li>{{ field }}: {{ errors|join(', ') }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
